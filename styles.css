@@ -1,0 +1,329 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --darkGray: hsl(0, 0%, 33%);
+  --black: hsl(0, 0%, 0%);
+  --white: hsl(0, 0%, 100%);
+  --veryDarkGray: hsl(0, 0%, 27%);
+}
+
+body {
+  font-family: "Spartan", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  max-width: 136ch;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 2.5em;
+  letter-spacing: -0.05em;
+  margin-bottom: 0.8em;
+}
+h2 {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.9em;
+  letter-spacing: 0.6em;
+  color: var(--black);
+}
+
+@media screen and (min-width: 400px) {
+  h1 {
+    font-size: 3em;
+  }
+  h2 {
+    font-size: 0.9em;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: var(--black);
+}
+
+p {
+  line-height: 1.5;
+  color: var(--darkGray);
+}
+
+/* header */
+header {
+  position: relative;
+}
+
+/*----------------------------------------------
+----------------- navbar --------------------------
+------------------------------------------------- */
+nav {
+  position: absolute;
+  display: flex;
+  width: 28em;
+  align-items: center;
+  padding: 4em;
+  text-transform: lowercase;
+  z-index: 100;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  margin-left: 3.5em;
+}
+
+nav li a {
+  color: var(--white);
+  margin: auto 1em;
+}
+
+nav li a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--white);
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.2em;
+  text-underline-position: under;
+}
+
+.nav-brand {
+  flex: 1 1 0;
+}
+.navbar-toggler {
+  flex: 1 1 0;
+  background-color: transparent;
+  border: none;
+}
+
+.navbar-toggler img:hover {
+  cursor: pointer;
+}
+
+.collapse {
+  display: none;
+}
+
+.nav-show {
+  background-color: var(--white);
+  width: 100vw;
+  padding: 2.5em;
+  position: inherit;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+}
+
+.nav-show a {
+  color: black;
+  font-weight: 700;
+}
+
+.nav-show.hide {
+  display: none;
+}
+
+.close-navbar-toggler {
+  display: block;
+  background-color: transparent;
+  border: none;
+}
+
+@media screen and (min-width: 700px) {
+  nav {
+    width: 30em;
+  }
+  .nav-brand {
+    flex: 1 0 auto;
+  }
+  .navbar-toggler {
+    display: none;
+  }
+  .collapse {
+    display: block;
+  }
+
+  .close-navbar-toggler.nav-show {
+    display: none;
+  }
+}
+
+/*------------------------------------------
+------------ footer --------------------
+-----------------------------------------*/
+
+footer {
+  padding: 2em;
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/*--------------------------------------------------
+-----hero button shop for more-----------------------
+---------------------------------------------------- */
+
+/* shop more */
+.btn {
+  display: flex;
+  padding: 1em 0;
+  width: 20em;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn:hover a {
+  color: var(--darkGray);
+}
+
+.btn a {
+  text-transform: uppercase;
+  letter-spacing: 1ch;
+  margin-right: 2em;
+}
+
+/* *******----------------------------------------------------------
+
+H E R O  SECTION
+
+--------------------------------------------------------***** */
+/*----------card carousels-------------- */
+
+.hero-wrapper {
+  /* width: 9vw; */
+  min-height: 58.4em;
+  overflow-x: hidden;
+}
+
+.hero-wrapper * {
+  box-sizing: border-box;
+}
+
+.card-carousel {
+  position: relative;
+  display: flex;
+}
+.card {
+  width: 100%;
+  position: absolute;
+  transition: transform 100ms ease-out 1s, opacity 1000ms ease-in 0.5s;
+  background-color: var(--white);
+}
+
+/*  */
+
+.current {
+  transform: translateX(0%);
+  z-index: 2;
+  opacity: 1;
+}
+
+.prev {
+  transform: translateX(-100%);
+  z-index: -1;
+  opacity: 0;
+}
+
+.next {
+  transform: translateX(100%);
+  z-index: 1;
+  opacity: 0;
+}
+/* -------------------------------------- */
+
+.card-desc {
+  padding: 3em;
+}
+
+.card-desc p {
+  padding-bottom: 2em;
+}
+
+/*hero controls */
+.controls {
+  background-color: var(--black);
+  box-sizing: border-box;
+  display: flex;
+  width: max-content;
+  position: absolute;
+  top: 24em;
+  right: 0em;
+  z-index: 50;
+}
+.controls img {
+  padding: 2em 2.65em;
+}
+.controls img:hover {
+  cursor: pointer;
+  background-color: var(--veryDarkGray);
+}
+
+@media screen and (min-width: 800px) {
+  .hero-wrapper {
+    min-height: 42.9em;
+  }
+  .card {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    place-items: center;
+  }
+  .card-desc {
+    padding: 2em;
+  }
+
+  .controls {
+    top: 36.9em;
+    right: 38.8ch;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .card-desc {
+    padding: 5em;
+  }
+}
+
+/* *******----------------------------------------------------------
+
+ABOUT THE FURNITURE SECTION
+
+--------------------------------------------------------***** */
+.about {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.about-desc {
+  padding: 3em;
+  margin: auto 0;
+}
+
+.about-desc h2 {
+  margin-bottom: 1em;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 800px) {
+  .about {
+    grid-template-columns: 2fr 3fr 2fr;
+    grid-template-rows: 1fr;
+  }
+}
